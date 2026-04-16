@@ -1,0 +1,20 @@
+=============================================
+>> DUNGEON MANAGEMENT SYSTEM
+
+> Required Features:
+    - "Modern Tools"
+    - OOP Features
+    - GUI
+    - Must have concepts of encapsulation, inheritance, polymorphism, abstraction and interface
+    - System interaction: Add, Update and delete events
+    - Storage: Must read and write files from drive
+
+
+ > Dungeon System:
+    - Create and procedurally generate dungeons
+    - Update functionalities of a dungeon
+    - Simulate a Dungeon raid with a character
+    - Create and Manage characters on your own
+    - Manage active dungeons and cleared dungeons
+    - 
+
