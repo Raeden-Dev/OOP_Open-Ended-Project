@@ -15,6 +15,26 @@
     - Update functionalities of a dungeon
     - Simulate a Dungeon raid with a character
     - Create and Manage characters on your own
+    - Create and Manage dungeon rooms on your own
     - Manage active dungeons and cleared dungeons
-    - 
+    - Manage active modifiers in a dungeon
 
+> Project Overview:
+    - Main Menu:
+        - Simulate
+        - Create Dungeons
+        - Create Player
+        - Manage
+            - Dungeons
+            - Dungeon Rooms
+            - Players
+            - History
+    - Simulate
+        - Generation: Shows real time generation of a dungeon
+        - Raid: Shows real time raid of a dungeon
+    - Create Dungeon
+        - Has a lot of text fields for dungeon modifiers
+        - Can randomize everything with a button click
+    - Create Player
+        - Has a lot of text fields for stats
+        - Can randomize everything with a button click
