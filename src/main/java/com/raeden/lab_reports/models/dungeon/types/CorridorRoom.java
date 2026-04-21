@@ -4,8 +4,8 @@ import com.raeden.lab_reports.models.dungeon.Room;
 
 public class CorridorRoom extends Room {
     private boolean explored = false;
-    public CorridorRoom(String roomName, char roomSymbol, String roomColor, int roomSize) {
-        super(roomName, roomSymbol, roomColor, roomSize);
+    public CorridorRoom(String roomName, String roomType, char roomSymbol, String roomColor, int roomSize) {
+        super(roomName, roomType, roomSymbol, roomColor, roomSize);
     }
 
     public boolean isExplored() {

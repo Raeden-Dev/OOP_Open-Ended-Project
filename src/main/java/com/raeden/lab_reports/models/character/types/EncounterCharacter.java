@@ -6,8 +6,8 @@ import com.raeden.lab_reports.models.character.CharacterActions;
 import static com.raeden.lab_reports.ui.printStrings.printCharacterAction;
 
 public class EncounterCharacter extends Character implements CharacterActions {
-    public EncounterCharacter(String name, String description) {
-        super(name, description);
+    public EncounterCharacter(String characterType, String name, String description) {
+        super(characterType, name, description);
     }
 
     @Override

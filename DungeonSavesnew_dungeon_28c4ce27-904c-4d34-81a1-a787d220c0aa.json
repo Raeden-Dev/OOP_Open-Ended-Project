@@ -1,0 +1,75 @@
+{
+  "dungeonID": "28c4ce27-904c-4d34-81a1-a787d220c0aa",
+  "generationLogic": "BFS_GEN",
+  "dungeonName": "new_dungeon",
+  "dungeonSizeX": 5,
+  "dungeonSizeY": 5,
+  "roomList": [
+    {
+      "explored": false,
+      "roomID": "2a159973-7ad0-4c8f-af85-c381c255b8bc",
+      "roomName": "Basic Room 0",
+      "roomSymbol": "R",
+      "roomSize": 1,
+      "roomColor": "gray",
+      "spawnChance": 0.0,
+      "cleared": false
+    },
+    {
+      "explored": false,
+      "roomID": "6581497a-09c9-49bb-851a-5723951e1d55",
+      "roomName": "Basic Room 1",
+      "roomSymbol": "R",
+      "roomSize": 1,
+      "roomColor": "gray",
+      "spawnChance": 0.0,
+      "cleared": false
+    },
+    {
+      "explored": false,
+      "roomID": "3ec799d9-b8ed-49d8-b040-93e66303fd50",
+      "roomName": "Basic Room 2",
+      "roomSymbol": "R",
+      "roomSize": 1,
+      "roomColor": "gray",
+      "spawnChance": 0.0,
+      "cleared": false
+    },
+    {
+      "explored": false,
+      "roomID": "980e829e-20a5-45bf-8683-d3ee4d2eb80f",
+      "roomName": "Treasure Room 3",
+      "roomSymbol": "T",
+      "roomSize": 1,
+      "roomColor": "blue",
+      "spawnChance": 0.0,
+      "cleared": false
+    },
+    {
+      "explored": false,
+      "roomID": "1e4c42f6-fcfe-4725-b2d7-11ff6709c035",
+      "roomName": "Basic Room 4",
+      "roomSymbol": "R",
+      "roomSize": 1,
+      "roomColor": "gray",
+      "spawnChance": 0.0,
+      "cleared": false
+    },
+    {
+      "explored": false,
+      "roomID": "d67a9eed-73e2-4c73-8957-c34701a86280",
+      "roomName": "Basic Room 5",
+      "roomSymbol": "R",
+      "roomSize": 1,
+      "roomColor": "gray",
+      "spawnChance": 0.0,
+      "cleared": false
+    }
+  ],
+  "mobList": [],
+  "rewardList": [],
+  "modifierList": [],
+  "totalRaids": 0,
+  "successfulRaids": 0,
+  "failedRaids": 0
+}

@@ -1,6 +1,7 @@
 package com.raeden.lab_reports.ui;
 
 import com.raeden.lab_reports.managers.DungeonManager;
+import com.raeden.lab_reports.managers.GlobalManager;
 import com.raeden.lab_reports.managers.PlayerManager;
 
 import static com.raeden.lab_reports.Main.menuID;
@@ -10,49 +11,51 @@ import static com.raeden.lab_reports.Main.programRunning;
 public class MenuNavigator {
     private DungeonManager dungeonManager;
     private PlayerManager playerManager;
+    private GlobalManager globalManager;
 
-    public MenuNavigator(DungeonManager d, PlayerManager p) {
+    public MenuNavigator(DungeonManager d, PlayerManager p, GlobalManager g) {
         this.dungeonManager = d;
         this.playerManager = p;
+        this.globalManager = g;
     }
 
-    public void menuNavListener(int sel) {
-        switch (sel) {
-            case 1:
+    public void menuNavListener(String inputStr) {
+        switch (inputStr) {
+            case "1":
                 printSimulate();
                 menuID = "s";
                 break;
-            case 2:
+            case "2":
                 printCreateDungeon();
                 menuID = "cd";
                 break;
-            case 3:
+            case "3":
                 printCreatePlayer();
                 menuID = "cp";
                 break;
-            case 4:
+            case "4":
                 printManage();
                 menuID = "m";
                 break;
-            case 5:
+            case "5":
                 programRunning = false;
                 printInfo("Exiting Dungeon Manager...");
                 break;
             default:
                 menuID = "mm";
-                printInvalidSelected(String.valueOf(sel));
+                printInvalidSelected(inputStr);
         }
     }
 
-    public void simulateNavListener(int sel) {
-        switch (sel) {
-            case 0:
+    public void simulateNavListener(String inputStr) {
+        switch (inputStr) {
+            case "0":
                 menuID = "mm";
                 printMenu();
                 break;
             default:
                 menuID = "s";
-                printInvalidSelected(String.valueOf(sel));
+                printInvalidSelected(inputStr);
         }
     }
 
@@ -60,7 +63,8 @@ public class MenuNavigator {
         if (inputStr.equals("0")) {
             menuID = "mm";
             printMenu();
-            return;
+        } else {
+            dungeonManager.parseDungeonCreationInput(inputStr);
         }
     }
 
@@ -68,29 +72,63 @@ public class MenuNavigator {
         if (inputStr.equals("0")) {
             menuID = "mm";
             printMenu();
-            return;
+        } else {
+            playerManager.parsePlayerCreationInput(inputStr);
         }
     }
 
-    public void manageNavListener(int sel) {
-        switch (sel) {
-            case 0:
+    public void editDungeonNavListener(String inputStr) {
+        String cleanInput = inputStr.trim();
+        if (cleanInput.equals("0")) {
+            menuID = "m";
+            printManage();
+        }
+        else if(cleanInput.startsWith("-d")) {
+            globalManager.deleteDungeon(cleanInput);
+        }
+        else {
+            globalManager.editDungeon(cleanInput);
+        }
+    }
+
+    public void editPlayerNavListener(String inputStr) {
+        String cleanInput = inputStr.trim();
+        if (cleanInput.equals("0")) {
+            menuID = "m";
+            printManage();
+        }
+        else if(cleanInput.startsWith("-d")) {
+            globalManager.deletePlayer(inputStr);
+        }
+        else {
+            globalManager.editPlayer(inputStr);
+        }
+    }
+
+
+    public void manageNavListener(String inputStr) {
+        switch (inputStr) {
+            case "0":
                 menuID = "mm";
                 printMenu();
                 break;
-            case 1:
-                dungeonManager.showDungeons();
+            case "1":
+                globalManager.showAvailableDungeons();
                 break;
-            case 2:
-                playerManager.showCharacters();
+            case "2":
+                globalManager.showAvailablePlayers();
                 break;
-            case 3:
+            case "3":
+                menuID = "ed";
+                printEditDungeon();
                 break;
-            case 4:
+            case "4":
+                menuID = "ep";
+                printEditPlayer();
                 break;
             default:
                 menuID = "m";
-                printInvalidSelected(String.valueOf(sel));
+                printInvalidSelected(inputStr);
         }
     }
 

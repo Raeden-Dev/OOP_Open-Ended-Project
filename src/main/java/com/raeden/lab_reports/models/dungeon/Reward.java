@@ -3,7 +3,7 @@ package com.raeden.lab_reports.models.dungeon;
 import java.util.UUID;
 
 public abstract class Reward {
-    private final String mobID = UUID.randomUUID().toString();
+    private final String rewardID = UUID.randomUUID().toString();
     private final String rewardName;
     private final String rewardQuality;
     private final String rewardDescription;
@@ -42,5 +42,9 @@ public abstract class Reward {
 
     public void setMaxAmount(int maxAmount) {
         this.maxAmount = maxAmount;
+    }
+
+    public String getRewardID() {
+        return rewardID;
     }
 }

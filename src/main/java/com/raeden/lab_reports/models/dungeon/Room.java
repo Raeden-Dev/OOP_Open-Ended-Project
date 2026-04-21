@@ -4,6 +4,7 @@ import java.util.UUID;
 
 public abstract class Room {
     private final String roomID = UUID.randomUUID().toString();
+    private final String roomType;
     private final String roomName;
     private final char roomSymbol;
     private int roomSize;
@@ -11,8 +12,9 @@ public abstract class Room {
     private double spawnChance;
     private boolean cleared;
 
-    public Room(String roomName, char roomSymbol, String roomColor, int roomSize) {
+    public Room(String roomName, String roomType, char roomSymbol, String roomColor, int roomSize) {
         this.roomName = roomName;
+        this.roomType = roomType;
         this.roomSymbol = roomSymbol;
         this.roomColor = roomColor;
         this.roomSize = roomSize;
@@ -52,5 +54,13 @@ public abstract class Room {
 
     public void setCleared(boolean cleared) {
         this.cleared = cleared;
+    }
+
+    public char getRoomSymbol() {
+        return roomSymbol;
+    }
+
+    public String getRoomType() {
+        return roomType;
     }
 }

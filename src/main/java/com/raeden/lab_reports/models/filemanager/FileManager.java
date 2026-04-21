@@ -56,7 +56,7 @@ public class FileManager {
                     return myObj;
                 }
             } catch (IOException | JsonSyntaxException e) {
-                printLoadFailure(fileName);
+                printLoadFailure(fileName + " " + e);
             }
         } else {
             printLoadFailure(fileName);
@@ -83,7 +83,7 @@ public class FileManager {
                 printSaveSuccess(fileName);
             }
         } catch (IOException e) {
-            printSaveFailure(fileName);
+            printSaveFailure(fileName + " " + e);
         }
     }
 }

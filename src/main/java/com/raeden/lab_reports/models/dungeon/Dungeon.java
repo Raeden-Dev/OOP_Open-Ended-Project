@@ -8,14 +8,14 @@ public abstract class Dungeon {
     private final String dungeonID = UUID.randomUUID().toString();
     private final DungeonPointers generationLogic;
 
-    private final String dungeonName;
-    private final int dungeonSizeX;
-    private final int dungeonSizeY;
+    private String dungeonName;
+    private int dungeonSizeX;
+    private int dungeonSizeY;
 
-    private List<Room> roomList;
-    private List<Mob> mobList;
-    private List<Reward> rewardList;
-    private List<Modifier> modifierList;
+    //private List<Room> roomList;
+    //private List<Mob> mobList;
+    //private List<Reward> rewardList;
+    // List<Modifier> modifierList;
 
     private int totalRaids;
     private int successfulRaids;
@@ -31,63 +31,51 @@ public abstract class Dungeon {
             this.generationLogic = DungeonPointers.BFS_GEN;
         }
 
-        roomList = new ArrayList<>();
-        mobList = new ArrayList<>();
-        rewardList = new ArrayList<>();
-        modifierList = new ArrayList<>();
+//        roomList = new ArrayList<>();
+//        mobList = new ArrayList<>();
+//        rewardList = new ArrayList<>();
+//        modifierList = new ArrayList<>();
 
         totalRaids = 0;
         successfulRaids = 0;
         failedRaids = 0;
     }
 
-    public String getDungeonName() {
-        return dungeonName;
-    }
-
-    public int getDungeonSizeX() {
-        return dungeonSizeX;
-    }
-
-    public int getDungeonSizeY() {
-        return dungeonSizeY;
-    }
-
-    public List<Mob> getMobList() {
-        return mobList;
-    }
-
-    public void setMobList(List<Mob> mobList) {
-        this.mobList = mobList;
-    }
-
-    public void addMob(Mob mob) {
-        this.mobList.add(mob);
-    }
-
-    public List<Reward> getRewardList() {
-        return rewardList;
-    }
-
-    public void setRewardList(List<Reward> rewardList) {
-        this.rewardList = rewardList;
-    }
-
-    public void addReward(Reward reward) {
-        this.rewardList.add(reward);
-    }
-
-    public List<Modifier> getModifierList() {
-        return modifierList;
-    }
-
-    public void setModifierList(List<Modifier> modifierList) {
-        this.modifierList = modifierList;
-    }
-
-    public void addModifier(Modifier modifier) {
-        this.modifierList.add(modifier);
-    }
+//    public List<Mob> getMobList() {
+//        return mobList;
+//    }
+//
+//    public void setMobList(List<Mob> mobList) {
+//        this.mobList = mobList;
+//    }
+//
+//    public void addMob(Mob mob) {
+//        this.mobList.add(mob);
+//    }
+//
+//    public List<Reward> getRewardList() {
+//        return rewardList;
+//    }
+//
+//    public void setRewardList(List<Reward> rewardList) {
+//        this.rewardList = rewardList;
+//    }
+//
+//    public void addReward(Reward reward) {
+//        this.rewardList.add(reward);
+//    }
+//
+//    public List<Modifier> getModifierList() {
+//        return modifierList;
+//    }
+//
+//    public void setModifierList(List<Modifier> modifierList) {
+//        this.modifierList = modifierList;
+//    }
+//
+//    public void addModifier(Modifier modifier) {
+//        this.modifierList.add(modifier);
+//    }
 
     public int getTotalRaids() {
         return totalRaids;
@@ -121,11 +109,35 @@ public abstract class Dungeon {
         return dungeonID;
     }
 
-    public List<Room> getRoomList() {
-        return roomList;
+//    public List<Room> getRoomList() {
+//        return roomList;
+//    }
+//
+//    public void setRoomList(List<Room> roomList) {
+//        this.roomList = roomList;
+//    }
+
+    public String getDungeonName() {
+        return dungeonName;
     }
 
-    public void setRoomList(List<Room> roomList) {
-        this.roomList = roomList;
+    public void setDungeonName(String dungeonName) {
+        this.dungeonName = dungeonName;
+    }
+
+    public int getDungeonSizeX() {
+        return dungeonSizeX;
+    }
+
+    public void setDungeonSizeX(int dungeonSizeX) {
+        this.dungeonSizeX = dungeonSizeX;
+    }
+
+    public int getDungeonSizeY() {
+        return dungeonSizeY;
+    }
+
+    public void setDungeonSizeY(int dungeonSizeY) {
+        this.dungeonSizeY = dungeonSizeY;
     }
 }

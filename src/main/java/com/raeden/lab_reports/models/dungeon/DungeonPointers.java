@@ -18,6 +18,10 @@ public enum DungeonPointers {
     MOB,
     MOB_KILL,
 
+    BASIC_ROOM,
+    TREASURE_ROOM,
+    CORRIDOR,
+
     TREASURE,
     TREASURE_FOUND,
     TREASURE_LOST,

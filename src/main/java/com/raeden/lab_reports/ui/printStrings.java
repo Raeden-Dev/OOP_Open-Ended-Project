@@ -35,7 +35,12 @@ public class printStrings {
     }
 
     public static void printInput() {
-        System.out.print("  | Input Variables >>>  ");
+        System.out.print("");
+    }
+
+    public static void printInput(String of) {
+        String toPrint = (of.isEmpty() ? "  | ":"[" + of + "] ") + "Input >>>  ";
+        System.out.print(toPrint);
     }
 
     public static void printInfo(String description) {
@@ -43,7 +48,7 @@ public class printStrings {
     }
 
     public static void printWarning(String description) {
-        System.out.println("   [x] Warning: ");
+        System.out.println("   [x] Warning: " + description);
     }
 
     // Interface
@@ -75,6 +80,18 @@ public class printStrings {
         System.out.println("  [x] Failed to save " + fileName + ".");
     }
 
+    // Creation problems
+    public static void errorDungeonCreation() {
+        errorDungeonCreation("Unknown");
+    }
+    public static void errorDungeonCreation(String reason) {
+        System.out.println("  [x] Something went wrong while creating the dungeon. Make sure you inputted the correct variables in right format! [Reason: " + reason + "]");
+    }
+
+    public static void errorPlayerCreation() {
+        System.out.println("  [x] Something went wrong while creating the character. Make sure you inputted the correct variables in right format!");
+    }
+
     // Menus
     public static void printMenu() {
         int option = 1;
@@ -83,7 +100,7 @@ public class printStrings {
         printInfo("Navigate by picking an option. (e.g: 1, 2, 3...)");
         printOption(option++, "Simulate");
         printOption(option++,"Create Dungeon");
-        printOption(option++,"Create Player");
+        printOption(option++,"Create Character");
         printOption(option++,"Manage...");
         printOption(option++,"Exit");
         printSeparator();
@@ -95,6 +112,7 @@ public class printStrings {
         printSubMenuSeparator();
         printTitle("Simulate");
         printInfo("Input 0 to go back to Main Menu.");
+        printWarning("Simulation is currently unavailable.");
         printOption(option++, "Dungeon");
         printOption(option++, "Raid");
         printOption(option++, "Multiple Raid");
@@ -102,12 +120,34 @@ public class printStrings {
     }
 
     public static void printCreateDungeon() {
-        int option = 1;
-
         printSubMenuSeparator();
         printTitle("Create Dungeon");
+        printInfo("Input 0 to go back to Management Menu.");
+        printInfo("Input these variables in order: {dungeon_name}, {size_x}, {size_z}, {generation_logic}");
+        printInfo("          e.g: The Gloomy Corridors, 5, 5, BFS_GEN");
+        printInfo("Available generation logic: BFS_GEN (ASTAR & DFS isn't available)");
+        printSubMenuSeparator();
+    }
+
+    public static void printEditDungeon() {
+        printSubMenuSeparator();
+        printTitle("Edit Dungeon");
+        printInfo("Input 0 to go back to Management Menu.");
+        printInfo("Input '-d' to delete Dungeon.");
+        printInfo("Input these variables in order: {dungeon_name}, {size_x}, {size_z}, {generation_logic}");
+        printInfo("          e.g: The Gloomy Corridors, 5, 5, BFS_GEN");
+        printInfo("Available generation logic: BFS_GEN (ASTAR & DFS isn't available)");
+        printSubMenuSeparator();
+    }
+
+    public static void printEditPlayer() {
+        printSubMenuSeparator();
+        printTitle("Edit Character");
         printInfo("Input 0 to go back to Main Menu.");
-        printInfo("Input these ");
+        printInfo("Input '-d' to delete Character.");
+        printInfo("Input these variables in order: {character_name}, {description}, {health}, {damage}, {type}");
+        printInfo("          e.g: Sadman, BEST CODE MONKEY!, 100, 2, PLAYER");
+        printInfo("Available character type: PLAYER, ENCOUNTER");
         printSubMenuSeparator();
     }
 
@@ -115,8 +155,11 @@ public class printStrings {
         int option = 1;
 
         printSubMenuSeparator();
-        printTitle("Create Player");
+        printTitle("Create Character");
         printInfo("Input 0 to go back to Main Menu.");
+        printInfo("Input these variables in order: {character_name}, {description}, {health}, {damage}, {type}");
+        printInfo("          e.g: Sadman, BEST CODE MONKEY!, 100, 2, PLAYER");
+        printInfo("Available character type: PLAYER, ENCOUNTER");
         printSubMenuSeparator();
     }
 
@@ -127,9 +170,9 @@ public class printStrings {
         printTitle("Manage");
         printInfo("Input 0 to go back to Main Menu.");
         printOption(option++, "Show active Dungeons");
-        printOption(option++, "Show active Players");
+        printOption(option++, "Show active Characters");
         printOption(option++, "Edit Dungeon...");
-        printOption(option++, "Edit Player...");
+        printOption(option++, "Edit Character...");
         printSubMenuSeparator();
     }
 }
