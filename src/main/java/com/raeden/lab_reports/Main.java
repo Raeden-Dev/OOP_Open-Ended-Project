@@ -12,7 +12,7 @@ import java.nio.file.Path;
 import java.util.Random;
 import java.util.Scanner;
 
-import static com.raeden.lab_reports.models.filemanager.FileManager.createDirectory;
+import static com.raeden.lab_reports.managers.FileManager.createDirectory;
 import static com.raeden.lab_reports.ui.printStrings.*;
 
 public class Main {

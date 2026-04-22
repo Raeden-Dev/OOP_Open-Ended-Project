@@ -1,7 +1,7 @@
 package com.raeden.lab_reports.managers;
 
 import com.raeden.lab_reports.models.dungeon.Dungeon;
-import com.raeden.lab_reports.models.dungeon.DungeonPointers;
+import com.raeden.lab_reports.models.Pointers;
 import com.raeden.lab_reports.models.dungeon.Room;
 import com.raeden.lab_reports.models.dungeon.types.*;
 
@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.raeden.lab_reports.Main.*;
-import static com.raeden.lab_reports.models.filemanager.FileManager.saveJsonFile;
+import static com.raeden.lab_reports.managers.FileManager.saveJsonFile;
 import static com.raeden.lab_reports.ui.printStrings.*;
 
 public class DungeonManager {
     private final List<Dungeon> activeDungeons = new ArrayList<>();
-
 
     public void parseDungeonCreationInput(String input) {
         String[] vars = input.trim().split(",");
@@ -22,20 +21,20 @@ public class DungeonManager {
             errorDungeonCreation("Expected 4 inputs. Found " + vars.length + "!");
             return;
         }
-        DungeonPointers pointer = null;
+        Pointers pointer = null;
         String name = vars[0].replace(" ", "_");
         int x, y;
         // Check pointer
         boolean isLogicValid = false;
         
-        for(DungeonPointers p : DungeonPointers.values()) {
+        for(Pointers p : Pointers.values()) {
             if(p.name().equalsIgnoreCase(vars[3].trim())) {
                 isLogicValid = true;
                 pointer = p;
                 break;
             }
         }
-        if(pointer == null || !pointer.equals(DungeonPointers.BFS_GEN)) {
+        if(pointer == null || !pointer.equals(Pointers.BFS_GEN)) {
             isLogicValid = false;
         }
         if(!isLogicValid) {
@@ -52,15 +51,15 @@ public class DungeonManager {
         createDungeon(pointer, name, x, y);
     }
 
-    public void createDungeon(DungeonPointers pointer, String name, int sizeX, int sizeY) {
+    public void createDungeon(Pointers pointer, String name, int sizeX, int sizeY) {
         Dungeon dungeon = null;
-        if(pointer.equals(DungeonPointers.A_STAR_GEN)) {
+        if(pointer.equals(Pointers.A_STAR_GEN)) {
             dungeon = new AStarDungeon(name, sizeX, sizeY, pointer);
         }
-        else if(pointer.equals(DungeonPointers.BFS_GEN)) {
+        else if(pointer.equals(Pointers.BFS_GEN)) {
             dungeon = new BFSDungeon(name, sizeX, sizeY, pointer);
         }
-        else if(pointer.equals(DungeonPointers.DFS_GEN)) {
+        else if(pointer.equals(Pointers.DFS_GEN)) {
             dungeon = new DFSDungeon(name, sizeX, sizeY, pointer);
         } else {
             dungeon = new BFSDungeon(name, sizeX, sizeY, pointer);
@@ -82,9 +81,9 @@ public class DungeonManager {
             int roll = roll();
             Room room;
             if(roll > 95) {
-                room = new TreasureRoom("Treasure Room " + i, DungeonPointers.TREASURE_ROOM.name().toLowerCase(), 'T', "blue", 1);
+                room = new TreasureRoom("Treasure Room " + i, Pointers.TREASURE_ROOM.name().toLowerCase(), 'T', "blue", 1);
             } else {
-                room = new BasicRoom("Basic Room " + i, DungeonPointers.BASIC_ROOM.name().toLowerCase(), 'R', "gray", 1);
+                room = new BasicRoom("Basic Room " + i, Pointers.BASIC_ROOM.name().toLowerCase(), 'R', "gray", 1);
             }
             r.add(room);
         }

@@ -2,12 +2,12 @@ package com.raeden.lab_reports.models.dungeon.types;
 
 import com.raeden.lab_reports.models.dungeon.Dungeon;
 import com.raeden.lab_reports.models.dungeon.DungeonActions;
-import com.raeden.lab_reports.models.dungeon.DungeonPointers;
+import com.raeden.lab_reports.models.Pointers;
 
 import static com.raeden.lab_reports.ui.printStrings.printDungeonAction;
 
 public class DFSDungeon extends Dungeon implements DungeonActions {
-    public DFSDungeon(String dungeonName, int dungeonSizeX, int dungeonSizeY, DungeonPointers generationLogic) {
+    public DFSDungeon(String dungeonName, int dungeonSizeX, int dungeonSizeY, Pointers generationLogic) {
         super(dungeonName, dungeonSizeX, dungeonSizeY, generationLogic);
     }
 

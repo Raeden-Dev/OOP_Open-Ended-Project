@@ -3,13 +3,13 @@ package com.raeden.lab_reports.managers;
 import com.raeden.lab_reports.models.character.Character;
 import com.raeden.lab_reports.models.character.types.EncounterCharacter;
 import com.raeden.lab_reports.models.character.types.PlayerCharacter;
-import com.raeden.lab_reports.models.dungeon.DungeonPointers;
+import com.raeden.lab_reports.models.Pointers;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.raeden.lab_reports.Main.playerSavePath;
-import static com.raeden.lab_reports.models.filemanager.FileManager.saveJsonFile;
+import static com.raeden.lab_reports.managers.FileManager.saveJsonFile;
 import static com.raeden.lab_reports.ui.printStrings.*;
 
 public class PlayerManager {
@@ -27,9 +27,9 @@ public class PlayerManager {
         String name = vars[0].trim().replace(" ", "_");
         String description = vars[1].trim();
         int maxHealth, damage;
-        DungeonPointers pointer = null;
+        Pointers pointer = null;
         boolean isLogicValid = false;
-        for(DungeonPointers p : DungeonPointers.values()) {
+        for(Pointers p : Pointers.values()) {
             if(p.name().equalsIgnoreCase(vars[4].trim())) {
                 isLogicValid = true;
                 pointer = p;
@@ -37,7 +37,7 @@ public class PlayerManager {
             }
         }
 
-        if(pointer != null && (!pointer.equals(DungeonPointers.PLAYER) && !pointer.equals(DungeonPointers.ENCOUNTER))) {
+        if(pointer != null && (!pointer.equals(Pointers.PLAYER) && !pointer.equals(Pointers.ENCOUNTER))) {
             isLogicValid = false;
         }
 
@@ -56,15 +56,15 @@ public class PlayerManager {
         createCharacter(pointer, name, description, maxHealth, damage);
     }
 
-    public void createCharacter(DungeonPointers pointer, String name, String description, int maxHealth, int damage) {
+    public void createCharacter(Pointers pointer, String name, String description, int maxHealth, int damage) {
         Character character = null;
 
-        if (pointer.equals(DungeonPointers.PLAYER)) {
-            character = new PlayerCharacter(DungeonPointers.PLAYER.name().toLowerCase(), name, description);
-        } else if (pointer.equals(DungeonPointers.ENCOUNTER)) {
-            character = new EncounterCharacter(DungeonPointers.ENCOUNTER.name().toLowerCase(), name, description);
+        if (pointer.equals(Pointers.PLAYER)) {
+            character = new PlayerCharacter(Pointers.PLAYER.name().toLowerCase(), name, description);
+        } else if (pointer.equals(Pointers.ENCOUNTER)) {
+            character = new EncounterCharacter(Pointers.ENCOUNTER.name().toLowerCase(), name, description);
         } else {
-            character = new PlayerCharacter(DungeonPointers.PLAYER.name().toLowerCase(), name, description);
+            character = new PlayerCharacter(Pointers.PLAYER.name().toLowerCase(), name, description);
         }
 
         character.setMaxHealth(maxHealth);

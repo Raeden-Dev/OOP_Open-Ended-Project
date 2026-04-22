@@ -2,7 +2,6 @@ package com.raeden.lab_reports.managers;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.raeden.lab_reports.Main;
 import com.raeden.lab_reports.models.character.Character;
 import com.raeden.lab_reports.models.character.types.EncounterCharacter;
 import com.raeden.lab_reports.models.character.types.PlayerCharacter;
@@ -10,7 +9,6 @@ import com.raeden.lab_reports.models.dungeon.Dungeon;
 import com.raeden.lab_reports.models.dungeon.types.AStarDungeon;
 import com.raeden.lab_reports.models.dungeon.types.BFSDungeon;
 import com.raeden.lab_reports.models.dungeon.types.DFSDungeon;
-import com.raeden.lab_reports.models.filemanager.FileManager;
 
 import java.io.File;
 import java.io.Reader;

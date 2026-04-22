@@ -1,4 +1,4 @@
-package com.raeden.lab_reports.models.filemanager;
+package com.raeden.lab_reports.managers;
 
 import com.google.gson.JsonSyntaxException;
 
